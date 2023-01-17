@@ -10,3 +10,8 @@
   grid-template-rows: 20% 1fr;
   height: 100vh;
 }
+
+header {
+  background-color: #222;
+  grid-column: 1 / 3;
+}
