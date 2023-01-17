@@ -16,6 +16,8 @@ aside {
   background-color: #ccc;
   display: grid;
   justify-items: center;
+  grid-template-rows: auto 1fr;
+  gap: 5%;
 }
 
 header {
@@ -49,7 +51,7 @@ th {
 button {
   margin-top: 5px;
   width: 85%;
-  height: 5%;
+  padding: 10px;
 }
 
 tr:not(:first-child) {
