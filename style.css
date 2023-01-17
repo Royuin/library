@@ -11,6 +11,10 @@
   height: 100vh;
 }
 
+aside {
+  background-color: #ccc;
+}
+
 header {
   background-color: #555;
   grid-column: 1 / 3;
