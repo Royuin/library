@@ -3,3 +3,10 @@
   margin: 0;
   font-family: inherit;
 }
+
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 20% 1fr;
+  height: 100vh;
+}
