@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   font-family: inherit;
+  box-sizing: border-box;
 }
 
 .grid-wrapper {
@@ -28,9 +29,15 @@ table {
   color: #ccc;
 }
 
+tbody {
+  display: grid;
+  grid-template-rows: 3fr 1.5fr;
+}
+
 tr {
   border-bottom: solid 2px #ccc;
-  border-right: solid 5px #ccc;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
 }
 
 th {
@@ -43,4 +50,9 @@ button {
   margin-top: 5px;
   width: 85%;
   height: 5%;
+}
+
+tr:not(:first-child) {
+  border-right: solid 5px #ccc;
+  padding: 0 25px 25px 25px;
 }
