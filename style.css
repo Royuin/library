@@ -13,6 +13,8 @@
 
 aside {
   background-color: #ccc;
+  display: grid;
+  justify-items: center;
 }
 
 header {
@@ -35,4 +37,10 @@ th {
   background-color: #222;
   border-top: solid 5px #ccc;
   border-right: solid 5px #ccc;
+}
+
+button {
+  margin-top: 5px;
+  width: 85%;
+  height: 5%;
 }
