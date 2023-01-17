@@ -31,7 +31,7 @@ table {
 
 tbody {
   display: grid;
-  grid-template-rows: 3fr 1.5fr;
+  grid-template-rows: minmax(80px, 3fr) 1.5fr;
 }
 
 tr {
