@@ -58,3 +58,14 @@ tr:not(:first-child) {
   border-right: solid 5px #ccc;
   padding: 0 25px 25px 25px;
 }
+
+form {
+  background-color: #999;
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 90%;
+  box-shadow: inset 0px 0px 35px #555;
+}
