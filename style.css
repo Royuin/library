@@ -62,7 +62,7 @@ tr:not(:first-child) {
 form {
   background-color: #999;
   padding: 5%;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   gap: 10px;
