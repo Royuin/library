@@ -1,3 +1,5 @@
+const myLibrary = [];
+
 const newBookBtn = document.querySelector('.new-book');
 
 newBookBtn.addEventListener('click', () => {
