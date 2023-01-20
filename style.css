@@ -56,7 +56,8 @@ button {
 
 tr:not(:first-child) {
   border-right: solid 5px #ccc;
-  padding: 0 25px 25px 25px;
+  padding: 15px 0 15px 0;
+  justify-items: center;
 }
 
 form {
