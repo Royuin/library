@@ -7,6 +7,11 @@ function Book(title, author, pages, status) {
   this.status = status;
 }
 
+const dune = new Book('Dune', 'some', 500, 'read');
+const lordOfTheRings = new Book('lotr', 'tolkien', 400, 'not read');
+
+myLibrary.push(dune, lordOfTheRings);
+
 const newBookBtn = document.querySelector('.new-book');
 const form = document.querySelector('form');
 
