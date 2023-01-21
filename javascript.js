@@ -28,7 +28,7 @@ function addBookToLibrary(book) {
 
 const tbody = document.querySelector('tbody');
 
-function addBooksToTable() {
+function addBookToTable() {
   const i = myLibrary.length - 1;
   const currentBook = myLibrary[i];
   const tr = document.createElement('tr');
@@ -56,5 +56,5 @@ document.querySelector('.add-book').addEventListener('click', (event) => {
   }
   const myBook = new Book(bookTitle, bookAuthor, bookPages, bookStatus);
   addBookToLibrary(myBook);
-  addBooksToTable();
+  addBookToTable();
 });
