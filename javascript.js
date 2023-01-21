@@ -22,6 +22,10 @@ newBookBtn.addEventListener('click', () => {
   }
 });
 
+function addBookToLibrary(book) {
+  myLibrary.push(book);
+}
+
 const tbody = document.querySelector('tbody');
 
 function addBooksToTable() {
