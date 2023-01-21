@@ -45,10 +45,15 @@ function addBooksToTable() {
 
 document.querySelector('.add-book').addEventListener('click', (event) => {
   event.preventDefault();
+  let bookStatus;
   const bookTitle = document.getElementById('title').value;
   const bookAuthor = document.getElementById('author').value;
   const bookPages = document.getElementById('pages').value;
-  const bookStatus = document.getElementById('status').value;
+  if (document.getElementById('status').checked) {
+    bookStatus = 'read';
+  } else {
+    bookStatus = 'not read';
+  }
   const myBook = new Book(bookTitle, bookAuthor, bookPages, bookStatus);
   addBookToLibrary(myBook);
   addBooksToTable();
