@@ -28,6 +28,13 @@ function addBookToLibrary(book) {
 
 const tbody = document.querySelector('tbody');
 
+function createRemoveBtn(tr) {
+  const removalBtn = document.createElement('button');
+  removalBtn.classList.add('remove-button');
+  removalBtn.textContent = 'Remove';
+  tr.appendChild(removalBtn);
+}
+
 function addBookToTable() {
   const i = myLibrary.length - 1;
   const currentBook = myLibrary[i];
@@ -40,7 +47,7 @@ function addBookToTable() {
     tbody.appendChild(tr);
   };
   Object.values(currentBook).forEach(tableBookData);
-  tr.appendChild(document.createElement('button'));
+  createRemoveBtn(tr);
 }
 
 document.querySelector('.add-book').addEventListener('click', (event) => {
