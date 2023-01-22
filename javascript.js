@@ -7,22 +7,13 @@ function Book(title, author, pages, status) {
   this.status = status;
 }
 
+// QUERY SELECTORS
+
 const newBookBtn = document.querySelector('.new-book');
 const form = document.querySelector('form');
-
-newBookBtn.addEventListener('click', () => {
-  if (form.style.display === 'none') {
-    form.style.display = 'flex';
-  } else {
-    form.style.display = 'none';
-  }
-});
-
-function addBookToLibrary(book) {
-  myLibrary.push(book);
-}
-
 const tbody = document.querySelector('tbody');
+
+// DOM CREATION FUNCTIONS
 
 function createRemoveBtn(tr, i) {
   const removeBtn = document.createElement('button');
@@ -75,6 +66,20 @@ function addBookToTable() {
 
   Object.values(currentBook).forEach(tableBookData);
   createRemoveBtn(tr, i);
+}
+
+// OBJECT CREATION
+
+newBookBtn.addEventListener('click', () => {
+  if (form.style.display === 'none') {
+    form.style.display = 'flex';
+  } else {
+    form.style.display = 'none';
+  }
+});
+
+function addBookToLibrary(book) {
+  myLibrary.push(book);
 }
 
 document.querySelector('.add-book').addEventListener('click', (event) => {
