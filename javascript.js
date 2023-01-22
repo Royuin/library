@@ -29,12 +29,12 @@ function addBookToLibrary(book) {
 const tbody = document.querySelector('tbody');
 
 function createRemoveBtn(tr, i) {
-  const removalBtn = document.createElement('button');
-  removalBtn.classList.add('remove-button');
-  removalBtn.textContent = 'Remove';
-  tr.appendChild(removalBtn);
+  const removeBtn = document.createElement('button');
+  removeBtn.classList.add('remove-button');
+  removeBtn.textContent = 'Remove';
+  tr.appendChild(removeBtn);
 
-  removalBtn.addEventListener('click', () => {
+  removeBtn.addEventListener('click', () => {
     const element = document.querySelector(`tr[data-id='${i}']`);
     element.remove();
     myLibrary.splice(i, 1);
