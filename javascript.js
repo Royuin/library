@@ -28,18 +28,24 @@ function addBookToLibrary(book) {
 
 const tbody = document.querySelector('tbody');
 
-function createRemoveBtn(tr) {
+function createRemoveBtn(tr, i) {
   const removalBtn = document.createElement('button');
   removalBtn.classList.add('remove-button');
   removalBtn.textContent = 'Remove';
   tr.appendChild(removalBtn);
+
+  removalBtn.addEventListener('click', () => {
+    const element = document.querySelector(`tr[data-id='${i}']`);
+    element.remove();
+    myLibrary.splice(i, 1);
+  });
 }
 
 function addBookToTable() {
   const i = myLibrary.length - 1;
   const currentBook = myLibrary[i];
   const tr = document.createElement('tr');
-
+  tr.dataset.id = i;
   const tableBookData = (item) => {
     const td = document.createElement('td');
     tr.appendChild(td);
@@ -47,7 +53,7 @@ function addBookToTable() {
     tbody.appendChild(tr);
   };
   Object.values(currentBook).forEach(tableBookData);
-  createRemoveBtn(tr);
+  createRemoveBtn(tr, i);
 }
 
 document.querySelector('.add-book').addEventListener('click', (event) => {
