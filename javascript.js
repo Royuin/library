@@ -41,17 +41,42 @@ function createRemoveBtn(tr, i) {
   });
 }
 
+function createReadButton(tr, item, currentBook) {
+  const td = document.createElement('td');
+  tr.appendChild(td);
+  const readBtn = document.createElement('button');
+  readBtn.appendChild(document.createTextNode(item));
+  td.appendChild(readBtn);
+
+  readBtn.addEventListener('click', () => {
+    if (readBtn.textContent === 'read') {
+      const thisBook = currentBook.status;
+      thisBook.textContent = 'not read';
+      readBtn.textContent = 'not read';
+    } else {
+      const thisBook = currentBook.status;
+      thisBook.textContent = 'read';
+      readBtn.textContent = 'read';
+    }
+  });
+}
+
 function addBookToTable() {
   const i = myLibrary.length - 1;
   const currentBook = myLibrary[i];
   const tr = document.createElement('tr');
   tr.dataset.id = i;
   const tableBookData = (item) => {
-    const td = document.createElement('td');
-    tr.appendChild(td);
-    td.appendChild(document.createTextNode(item));
-    tbody.appendChild(tr);
+    if (item !== 'read' && item !== 'not read') {
+      const td = document.createElement('td');
+      tr.appendChild(td);
+      td.appendChild(document.createTextNode(item));
+      tbody.appendChild(tr);
+    } else {
+      createReadButton(tr, item, currentBook);
+    }
   };
+
   Object.values(currentBook).forEach(tableBookData);
   createRemoveBtn(tr, i);
 }
