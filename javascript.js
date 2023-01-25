@@ -48,25 +48,25 @@ function createReadButton(tr, item, currentBook) {
   });
 }
 
-function addBookToTable() {
-  const i = myLibrary.length - 1;
-  const currentBook = myLibrary[i];
-  const tr = document.createElement('tr');
-  tr.dataset.id = i;
-  const tableBookData = (item) => {
-    if (item !== 'read' && item !== 'not read') {
-      const td = document.createElement('td');
-      tr.appendChild(td);
-      td.appendChild(document.createTextNode(item));
-      tbody.appendChild(tr);
-    } else {
-      createReadButton(tr, item, currentBook);
-    }
-  };
+// function addBookToTable() {
+//   const i = myLibrary.length - 1;
+//   const currentBook = myLibrary[i];
+//   const tr = document.createElement('tr');
+//   tr.dataset.id = i;
+//   const tableBookData = (item) => {
+//     if (item !== 'read' && item !== 'not read') {
+//       const td = document.createElement('td');
+//       tr.appendChild(td);
+//       td.appendChild(document.createTextNode(item));
+//       tbody.appendChild(tr);
+//     } else {
+//       createReadButton(tr, item, currentBook);
+//     }
+//   };
 
-  Object.values(currentBook).forEach(tableBookData);
-  createRemoveBtn(tr, i);
-}
+//   Object.values(currentBook).forEach(tableBookData);
+//   createRemoveBtn(tr, i);
+// }
 
 // OBJECT CREATION
 
@@ -82,6 +82,52 @@ function addBookToLibrary(book) {
   myLibrary.push(book);
 }
 
+//
+//
+// DO IT THE RIGHT WAY WITH THE THIS KEYWORD
+//
+//
+
+Book.prototype.log = function () {
+  if (myLibrary.includes(this)) {
+    return;
+  } else {
+    const i = indexOf(this);
+    const tr = document.createElement('tr');
+    tr.dataset.id = i;
+
+    if (this.status !== 'read' && this.status !== 'not read') {
+      const td = document.createElement('td');
+      tr.appendChild(td);
+      td.appendChild(document.createTextNode(this));
+      tbody.appendChild(tr);
+    } else {
+      createReadButton(tr, this.status, this);
+    }
+  }
+};
+
+function bookForLoop(item, index) {
+  const currentBook = myLibrary[index];
+  currentBook.log();
+}
+
+const dune = new Book('Dune', 'frank', 560, 'not read');
+const dunno = new Book('dunno', 'fred', 55, 'read');
+const hobbit = new Book('hobbit', 'tolkein', 460, 'not read');
+
+myLibrary.push(dune, dunno, hobbit);
+
+myLibrary.forEach(bookForLoop);
+
+function addToDom() {
+  myLibrary.forEach((book) => {
+    console.log(this);
+  });
+}
+
+addToDom();
+
 document.querySelector('.add-book').addEventListener('click', (event) => {
   event.preventDefault();
   let bookStatus;
@@ -95,5 +141,5 @@ document.querySelector('.add-book').addEventListener('click', (event) => {
   }
   const myBook = new Book(bookTitle, bookAuthor, bookPages, bookStatus);
   addBookToLibrary(myBook);
-  addBookToTable();
+  myLibrary.forEach(bookForLoop);
 });
