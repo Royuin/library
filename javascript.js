@@ -15,16 +15,16 @@ const tbody = document.querySelector('tbody');
 
 // DOM CREATION FUNCTIONS
 
-function createRemoveBtn(tr, i) {
+function createRemoveBtn(tr, currentBookIndex) {
   const removeBtn = document.createElement('button');
   removeBtn.classList.add('remove-button');
   removeBtn.textContent = 'Remove';
   tr.appendChild(removeBtn);
 
   removeBtn.addEventListener('click', () => {
-    const element = document.querySelector(`tr[data-id='${i}']`);
+    const element = document.querySelector(`tr[data-id='${currentBookIndex}']`);
     element.remove();
-    myLibrary.splice(i, 1);
+    myLibrary.splice(currentBookIndex, 1);
   });
 }
 
@@ -49,10 +49,10 @@ function createReadButton(tr, item, currentBook) {
 }
 
 function addBookToTable() {
-  const i = myLibrary.length - 1;
-  const currentBook = myLibrary[i];
+  const currentBookIndex = myLibrary.length - 1;
+  const currentBook = myLibrary[currentBookIndex];
   const tr = document.createElement('tr');
-  tr.dataset.id = i;
+  tr.dataset.id = currentBookIndex;
   const tableBookData = (item) => {
     if (item !== 'read' && item !== 'not read') {
       const td = document.createElement('td');
@@ -65,7 +65,7 @@ function addBookToTable() {
   };
 
   Object.values(currentBook).forEach(tableBookData);
-  createRemoveBtn(tr, i);
+  createRemoveBtn(tr, currentBookIndex);
 }
 
 // OBJECT CREATION
