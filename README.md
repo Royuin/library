@@ -18,3 +18,4 @@ While all the basic functionality that was required is there, more features are 
 - Add background image to header
 - Style read and remove buttons
 - Add more rustic colors to page so it is not all grey scale
+- Prevent user from putting a book with negative pages
