@@ -15,11 +15,11 @@ const tbody = document.querySelector('tbody');
 
 // DOM CREATION FUNCTIONS
 
-function createRemoveBtn(tr, currentBookIndex) {
+function createRemoveBtn(tableRowElement, currentBookIndex) {
   const removeBtn = document.createElement('button');
   removeBtn.classList.add('remove-button');
   removeBtn.textContent = 'Remove';
-  tr.appendChild(removeBtn);
+  tableRowElement.appendChild(removeBtn);
 
   removeBtn.addEventListener('click', () => {
     const element = document.querySelector(`tr[data-id='${currentBookIndex}']`);
@@ -28,12 +28,12 @@ function createRemoveBtn(tr, currentBookIndex) {
   });
 }
 
-function createReadButton(tr, item, currentBook) {
-  const td = document.createElement('td');
-  tr.appendChild(td);
+function createReadButton(tableRowElement, item, currentBook) {
+  const tableDataElement = document.createElement('td');
+  tableRowElement.appendChild(tableDataElement);
   const readBtn = document.createElement('button');
   readBtn.appendChild(document.createTextNode(item));
-  td.appendChild(readBtn);
+  tableDataElement.appendChild(readBtn);
 
   readBtn.addEventListener('click', () => {
     if (readBtn.textContent === 'read') {
@@ -51,21 +51,21 @@ function createReadButton(tr, item, currentBook) {
 function addBookToTable() {
   const currentBookIndex = myLibrary.length - 1;
   const currentBook = myLibrary[currentBookIndex];
-  const tr = document.createElement('tr');
-  tr.dataset.id = currentBookIndex;
+  const tableRowElement = document.createElement('tr');
+  tableRowElement.dataset.id = currentBookIndex;
   const tableBookData = (item) => {
     if (item !== 'read' && item !== 'not read') {
-      const td = document.createElement('td');
-      tr.appendChild(td);
-      td.appendChild(document.createTextNode(item));
-      tbody.appendChild(tr);
+      const tableDataElement = document.createElement('td');
+      tableRowElement.appendChild(tableDataElement);
+      tableDataElement.appendChild(document.createTextNode(item));
+      tbody.appendChild(tableRowElement);
     } else {
-      createReadButton(tr, item, currentBook);
+      createReadButton(tableRowElement, item, currentBook);
     }
   };
 
   Object.values(currentBook).forEach(tableBookData);
-  createRemoveBtn(tr, currentBookIndex);
+  createRemoveBtn(tableRowElement, currentBookIndex);
 }
 
 // OBJECT CREATION
