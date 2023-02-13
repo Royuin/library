@@ -70,3 +70,11 @@ form {
   margin-bottom: 90%;
   box-shadow: inset 0px 0px 35px #555;
 }
+
+h1 {
+  position: absolute;
+}
+
+.img {
+  width: 100%;
+}
