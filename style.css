@@ -1,5 +1,6 @@
 :root {
-  --main-background: #333;
+  --background: #333;
+  --midground: #555;
   --forground: #ccc;
 }
 
@@ -26,7 +27,6 @@ aside {
 }
 
 header {
-  background-color: #555;
   grid-column: 1 / 3;
 }
 
