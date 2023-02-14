@@ -19,7 +19,7 @@
 }
 
 aside {
-  background-color: #ccc;
+  background-color: var(--background);
   display: grid;
   justify-items: center;
   grid-template-rows: auto 1fr;
@@ -32,8 +32,8 @@ header {
 
 table {
   border-collapse: collapse;
-  background-color: #555;
-  color: #ccc;
+  background-color: var(--midground);
+  color: var(--forground);
 }
 
 tbody {
@@ -42,15 +42,15 @@ tbody {
 }
 
 tr {
-  border-bottom: solid 2px #ccc;
+  border-bottom: solid 2px var(--forground);
   display: grid;
   grid-template-columns: repeat(5, 1fr);
 }
 
 th {
-  background-color: #222;
-  border-top: solid 5px #ccc;
-  border-right: solid 5px #ccc;
+  background-color: var(--midground);
+  border-top: solid 5px var(--forground);
+  border-right: solid 5px var(--forground);
 }
 
 button {
@@ -60,20 +60,20 @@ button {
 }
 
 tr:not(:first-child) {
-  border-right: solid 5px #ccc;
+  border-right: solid 5px var(--forground);
   padding: 15px 0 15px 0;
   justify-items: center;
 }
 
 form {
-  background-color: #999;
+  background-color: var(--forground);
   padding: 5%;
   display: none;
   flex-direction: column;
   align-items: center;
   gap: 10px;
   margin-bottom: 90%;
-  box-shadow: inset 0px 0px 35px #555;
+  box-shadow: inset 0px 0px 35px var(--midground);
 }
 
 h1 {
