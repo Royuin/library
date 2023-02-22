@@ -12,6 +12,12 @@ While all the basic functionality that was required is there, more features are 
 - Removing books from page
 - Changing the read status of you're books
 
+## What was learned
+
+- Constructor functions
+- Classes
+- Data Attributes
+
 ## Technologies Used
 
 - Html/Css
