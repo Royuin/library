@@ -17,6 +17,7 @@ While all the basic functionality that was required is there, more features are 
 - Constructor functions
 - Classes
 - Data Attributes
+- Module Pattern
 
 ## Technologies Used
 
