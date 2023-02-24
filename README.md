@@ -28,6 +28,7 @@ While all the basic functionality that was required is there, more features are 
 
 ## TO DO
 
+- Utilize ES6 Modules instead of the module pattern
 - Let user be able to save info
 - Add background image to header
 - Style read and remove buttons
