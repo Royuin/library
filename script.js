@@ -83,11 +83,28 @@ function addBookToLibrary(book) {
 }
 
 document.querySelector('.add-book').addEventListener('click', (event) => {
+  const titleInput = document.getElementById('title');
+  const authorInput = document.getElementById('author');
+  const pagesInput = document.getElementById('pages');
+
+  if (titleInput.validity.valueMissing) {
+    titleInput.setCustomValidity('Please fill out field');
+    return;
+  } else if (authorInput.validity.valueMissing) {
+    authorInput.setCustomValidity('Please fill out field');
+    return;
+  }
+  if (pagesInput.validity.valueMissing) {
+    pagesInput.setCustomValidity('Please enter a number');
+    return;
+  }
+
   event.preventDefault();
   let bookStatus;
   const bookTitle = document.getElementById('title').value;
   const bookAuthor = document.getElementById('author').value;
   const bookPages = document.getElementById('pages').value;
+
   if (document.getElementById('status').checked) {
     bookStatus = 'read';
   } else {
