@@ -31,9 +31,12 @@ header {
 }
 
 table {
-  border-collapse: collapse;
   background-color: var(--midground);
   color: var(--forground);
+}
+
+caption {
+  background-color: var(--midground);
 }
 
 tbody {
